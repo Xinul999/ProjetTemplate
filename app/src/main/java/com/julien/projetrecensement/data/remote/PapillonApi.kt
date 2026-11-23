@@ -12,4 +12,7 @@ class PapillonApi(val client: HttpClient) {
     suspend fun getPapillons(): List<Papillon> {
         return client.get("$BASE_URL/").body()
     }
+    suspend fun getDetailsPapillon(id: Int): Papillon {
+        return client.get("$BASE_URL/papillon/$id").body()
+    }
 }

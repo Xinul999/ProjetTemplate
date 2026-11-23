@@ -6,6 +6,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
+import com.julien.projetrecensement.presentation.PapillonDetailsScreen
 import com.julien.projetrecensement.presentation.PapillonScreen
 import kotlinx.serialization.Serializable
 
@@ -23,17 +24,19 @@ fun AppNavigation(modifier: Modifier = Modifier) {
 
     NavHost(
         navController = navController,
+        // route : root (/) : startDestination
         startDestination = PapillonsListRoute,
         modifier = modifier,
     ) {
         composable<PapillonsListRoute> {
             PapillonScreen(
-                //onButterflyClick = { id -> navController.navigate(PapillonDetailRoute(id)) },
+                onPapillonClick = { id -> navController.navigate(PapillonDetailRoute(id)) },
             )
         }
+        // creation des routes pour la navigation
         composable<PapillonDetailRoute> { entry ->
             val route = entry.toRoute<PapillonDetailRoute>()
-            // PapillonDetailScreen(butterflyId = route.id)
+            PapillonDetailsScreen(papillonId = route.id)
         }
     }
 }

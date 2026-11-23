@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import com.julien.projetrecensement.presentation.PapillonScreen
+import com.julien.projetrecensement.navigation.AppNavigation
 import com.julien.projetrecensement.ui.theme.ProjetTemplateTheme
 
 
@@ -16,7 +16,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             // Un seul theme dans android
             ProjetTemplateTheme {
-                PapillonScreen()
+                AppNavigation()
             }
         }
     }
